@@ -40,6 +40,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3875368610147515785, guid: 5769db3e330989241aabc650d5331570, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 444f5764cf390ab458ba316c4694a428, type: 2}
     - target: {fileID: 4600486007363385916, guid: 5769db3e330989241aabc650d5331570, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.84
@@ -106,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 444f5764cf390ab458ba316c4694a428, type: 2}
     - target: {fileID: 6250763083525884234, guid: 5769db3e330989241aabc650d5331570, type: 3}
       propertyPath: m_Name
-      value: Fruit Variant
+      value: Lime
       objectReference: {fileID: 0}
     - target: {fileID: 7318872475739877970, guid: 5769db3e330989241aabc650d5331570, type: 3}
       propertyPath: m_LocalScale.x

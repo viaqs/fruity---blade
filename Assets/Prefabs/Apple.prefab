@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1678099874531109040, guid: 5769db3e330989241aabc650d5331570, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2669633009622560368, guid: 5769db3e330989241aabc650d5331570, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -32,6 +36,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3875368610147515785, guid: 5769db3e330989241aabc650d5331570, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3d36d3acc08a474ba6460ec0e06787e, type: 2}
     - target: {fileID: 4600486007363385916, guid: 5769db3e330989241aabc650d5331570, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.08
@@ -86,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e3d36d3acc08a474ba6460ec0e06787e, type: 2}
     - target: {fileID: 6250763083525884234, guid: 5769db3e330989241aabc650d5331570, type: 3}
       propertyPath: m_Name
-      value: Fruit (1) Variant
+      value: Apple
       objectReference: {fileID: 0}
     - target: {fileID: 7318872475739877970, guid: 5769db3e330989241aabc650d5331570, type: 3}
       propertyPath: m_LocalScale.x
