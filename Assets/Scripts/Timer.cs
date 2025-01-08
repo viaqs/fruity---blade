@@ -6,7 +6,8 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
-    public float remainingTime;
+
+    public static float remainingTime = 120;
 
     private void Update()
     {
@@ -17,6 +18,7 @@ public class Timer : MonoBehaviour
         else if (remainingTime < 0)
         {
             remainingTime = 0;
+            FindObjectOfType<UiManager>().EndGame();
         }
 
         int min = Mathf.FloorToInt(remainingTime / 60);
