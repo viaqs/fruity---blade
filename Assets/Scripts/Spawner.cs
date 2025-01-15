@@ -8,7 +8,6 @@ public class Spawner : MonoBehaviour
     public GameObject[] fruits;
     public GameObject BombPrefab;
     public float BombChance = 0.005f;
-
     public float minSpawnDelay = 0.25f;
     public float maxSpawnDelay = 1f;
     public float minAngle = -15f;
