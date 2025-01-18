@@ -16,9 +16,13 @@ public class Spawner : MonoBehaviour
     public float maxForce = 22f;
     public float maxLifetime = 5f;
 
+    public AudioSource audioSource;
+    public AudioClip spawnSound;
+
     private void Awake()
     {
         spawnArea = GetComponent<Collider>();
+        
     }
 
     public void OnEnable()
@@ -36,7 +40,9 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         while (enabled)
-        {
+           
+        {   audioSource.PlayOneShot(spawnSound);
+            audioSource.pitch = Random.Range(1f, 1.1f);
             GameObject prefab = fruits[Random.Range(0, fruits.Length)];
 
             if(Random.value < BombChance)

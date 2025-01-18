@@ -10,12 +10,18 @@ public class UiManager : MonoBehaviour
     public static UiManager instance;
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI BestText;
+    public TextMeshProUGUI text;
     public TextMeshProUGUI bestScored;
     public TextMeshProUGUI Scored;
+    public Image watermelon;
     public Image background;
     public Image FadingEffect;
     private int score;
     private int banTime = 10;
+
+    public AudioSource AudioSource;
+    public AudioClip bombSound;
+    public AudioClip fruitSlicing;
 
     private void Awake()
     {
@@ -31,7 +37,10 @@ public class UiManager : MonoBehaviour
         }
     }
 
-   
+    public void slicingSounds()
+    {
+        AudioSource.PlayOneShot(fruitSlicing);
+    }
     public void ZenMode()
     {
         SceneManager.LoadScene("Zen");
@@ -52,6 +61,8 @@ public class UiManager : MonoBehaviour
         score = 0;
         ScoreText.text = score.ToString();
         background.gameObject.SetActive(false);
+        watermelon.gameObject.SetActive(true);
+        text.gameObject.SetActive(true);
         FindObjectOfType<Spawner>().OnEnable();
         FindObjectOfType<Blade>().OnEnable();
 
@@ -75,16 +86,18 @@ public class UiManager : MonoBehaviour
     {
         Timer.remainingTime -= banTime;
         StartCoroutine(ExplodingAnim());
+        AudioSource.PlayOneShot(bombSound);
     }
 
     public void EndGame()
     {
         FindObjectOfType<Spawner>().OnDisable();
         FindObjectOfType<Blade>().OnDisable();
-      
+        text.gameObject.SetActive (false);
         background.gameObject.SetActive(true);
         ScoreText.gameObject.SetActive(false);
         BestText.gameObject.SetActive(false);
+        watermelon.gameObject.SetActive(false); 
         Scored.text = ScoreText.text;
         bestScored.text = BestText.text;
 
@@ -105,9 +118,13 @@ public class UiManager : MonoBehaviour
     {
         float elapsed = 0f;
         float duration = 0.5f;
+       
         while (elapsed < duration)
-        {   float time = Mathf.Clamp01(elapsed/duration);
+        {
+            
+            float time = Mathf.Clamp01(elapsed/duration);
             FadingEffect.color = Color.Lerp(Color.clear, Color.white, time);
+            watermelon.color = Color.Lerp(Color.white,Color.clear, time);
             Time.timeScale = 1f - time;
             elapsed += Time.unscaledDeltaTime;
             yield return null;
@@ -121,10 +138,13 @@ public class UiManager : MonoBehaviour
         {
             float time = Mathf.Clamp01(elapsed / duration);
             FadingEffect.color = Color.Lerp(Color.white, Color.clear, time);
+            watermelon.color = Color.Lerp(Color.clear, Color.white, time);
             
             elapsed += Time.unscaledDeltaTime;
             yield return null;
+            
         }
+       
     }
 
   

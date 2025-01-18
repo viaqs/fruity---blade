@@ -11,6 +11,8 @@ public class Blade : MonoBehaviour
     
     public Vector3 direction { get; private set; }
     public float sliceForce = 5f;
+    public AudioSource audioSource;
+    public AudioClip slicingAudio;
 
     private void Awake()
     {
@@ -37,6 +39,8 @@ public class Blade : MonoBehaviour
 
     private void StartSlicing()
     {
+        audioSource.volume = 0.3f;
+        audioSource.PlayOneShot(slicingAudio);
         Vector3 newPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         newPosition.z = 0f;
         transform.position = newPosition;
@@ -62,6 +66,7 @@ public class Blade : MonoBehaviour
 
     private void ContinueSlicing()
     {
+       
         Vector3 newPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         newPosition.z = 0f;
         

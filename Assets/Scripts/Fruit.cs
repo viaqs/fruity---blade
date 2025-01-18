@@ -45,6 +45,7 @@ public class Fruit : MonoBehaviour
         if (other.CompareTag("Player"))
         { Blade blade = other.GetComponent<Blade>();
             Slice(blade.direction,blade.transform.position, blade.sliceForce);
+            FindObjectOfType<UiManager>().slicingSounds();
             
         }
     }
